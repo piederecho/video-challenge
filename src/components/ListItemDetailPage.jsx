@@ -1,12 +1,12 @@
 import React from 'react';
 
-const ListItemDetailPage = props => {
-  const { imdbID, Poster, Title } = props;
-  console.log(props)
+const ListItemDetailPage = location => {
+  const movie = location.location.state;
   return (
     <div className='videos__item'>
-      <img className='videos__item__img' src={Poster} alt={Title} />
-      <p> {imdbID} </p>
+    <h1> {movie.title} </h1>
+    <img className='videos__item__img' src={movie.image} alt={movie.title} />
+    <p>Año: {movie.year} </p>
     </div>
   );
 }

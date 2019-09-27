@@ -5,7 +5,7 @@ const apiConnection = (url) => {
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
-      .then((data) => setVideos(data));
+      .then((data) => setVideos(data.Search));
   }, []);
   console.log(videos);
   return videos;
