@@ -6,7 +6,7 @@ import logo from '../assets/static/logo.png';
 const Header = () => (
   <div className='header'>
     <Link to="/">
-      <img src={logo} alt='Logo' width='150' />
+      <h1>Crehana Videos</h1>
       </Link>
   </div>
 );

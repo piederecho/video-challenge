@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import '../assets/styles/App.scss';
+import '../assets/styles/components/Home.scss';
 import ListItem from '../components/ListItem';
 import ListItemDetail from '../components/ListItemDetail';
 
