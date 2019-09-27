@@ -2,28 +2,32 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 const Search = () => {
-  const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('Batman');
-  useEffect(() => {
-    //updateSearch
-  }, [query]);
 
-  const updateSearch = e => {
-    setSearch(e.target.value);
-  }
+const [filter, setFilter] = useState('movies');
+useEffect(() => {
+}, []);
 
-  const getSearch = e => {
-    e.preventDefault();
-    setQuery(search);
-    console.log(search);
-  }
+const getURL = e => {
+  e.preventDefault();
+  setQuery(search);
+  getMovies(`http://www.omdbapi.com/?i=tt3896198&apikey=dc5fe752&s=${search}&plot=full`)
+}
+
+const getFilter = e =>{
+  setFilter(e.target.value);
+}
+
+const getMovies = (url) => {
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => setVideos(data.Search));
+}
 
   return (
-    <form onSubmit={getSearch} className="videos__search">
-      <h2>¿Qué peliculas quieres ver hoy? </h2>
-      <input className='videos__search__box' type="text" name="search" placeholder="Batman" value={search} onChange={updateSearch} />
-      <button>Buscar</button>
-    </form>
+    <ul>
+      <li onClick={getFilter}>Peliculas</li>
+      <li>Series</li>
+    </ul>
   )
 }
 
